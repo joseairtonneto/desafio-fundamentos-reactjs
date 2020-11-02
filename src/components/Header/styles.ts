@@ -4,6 +4,10 @@ interface ContainerProps {
   size?: 'small' | 'large';
 }
 
+interface NavProps {
+  isHere: boolean;
+}
+
 export const Container = styled.div<ContainerProps>`
   background: #5636d3;
   padding: 30px 0;
@@ -29,6 +33,13 @@ export const Container = styled.div<ContainerProps>`
 
         &:hover {
           opacity: 0.6;
+        }
+
+        &:focus {
+          padding-bottom: 10px;
+          border-width: 0 0 2px 0;
+          border-style: solid;
+          border-color: #ff872c;
         }
       }
     }
