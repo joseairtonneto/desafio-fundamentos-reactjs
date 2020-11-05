@@ -1,11 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface ContainerProps {
   size?: 'small' | 'large';
-}
-
-interface NavProps {
-  isHere: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -34,12 +30,24 @@ export const Container = styled.div<ContainerProps>`
         &:hover {
           opacity: 0.6;
         }
-
-        &:focus {
-          padding-bottom: 10px;
-          border-width: 0 0 2px 0;
-          border-style: solid;
-          border-color: #ff872c;
+        ${props =>
+          props.size === 'small'
+            ? css`
+                & + a:any-link {
+                  padding-bottom: 10px;
+                  border-width: 0 0 2px 0;
+                  border-style: solid;
+                  border-color: #ff872c;
+                }
+              `
+            : css`
+                &:first-child {
+                  padding-bottom: 10px;
+                  border-width: 0 0 2px 0;
+                  border-style: solid;
+                  border-color: #ff872c;
+                }
+              `}
         }
       }
     }
